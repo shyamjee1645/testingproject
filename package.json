@@ -1,0 +1,19 @@
+{
+  "name": "yourneedsourgig",
+  "version": "1.0.0",
+  "description": "Full Stack Ecommerce App",
+  "main": "backend/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shyamjee/testingproject.git"
+  },
+  "author": "Shyam Jee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shyamjee/testingproject/issues"
+  },
+  "homepage": "https://github.com/shyamjee/testingproject#readme"
+}
