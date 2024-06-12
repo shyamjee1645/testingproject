@@ -3,19 +3,19 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 function Footer() {
   return (
-    <footer className="bg-dark text-light py-4"> {/* Decreased py-5 to py-4 */}
+    <footer className="bg-dark text-light py-3"> {/* Reduced padding */}
       <Container>
         <Row>
-          <Col md={6}>
-            <h5>About FindYourHome</h5> {/* Changed h4 to h5 */}
+          <Col md={4} sm={6}> {/* Adjusted column sizes */}
+            <h5>About FindYourHome</h5> {/* Used h5 instead of h4 */}
             <p>
               FindYourHome is a leading platform for buying and selling homes. We
               connect buyers and sellers, providing a seamless and efficient
               experience.
             </p>
           </Col>
-          <Col md={3}>
-            <h5>Quick Links</h5> {/* Changed h4 to h5 */}
+          <Col md={4} sm={6}> {/* Adjusted column sizes */}
+            <h5>Quick Links</h5> {/* Used h5 instead of h4 */}
             <ul className="list-unstyled">
               <li><a href="#" className="text-light">Find a Home</a></li>
               <li><a href="#" className="text-light">Sell Your Home</a></li>
@@ -23,8 +23,8 @@ function Footer() {
               <li><a href="#" className="text-light">Contact</a></li>
             </ul>
           </Col>
-          <Col md={3}>
-            <h5>Contact Us</h5> {/* Changed h4 to h5 */}
+          <Col md={4} sm={12}> {/* Adjusted column sizes */}
+            <h5>Contact Us</h5> {/* Used h5 instead of h4 */}
             <ul className="list-unstyled">
               <li>123 Main Street</li>
               <li>Anytown, USA</li>

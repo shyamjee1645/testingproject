@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <NavbarHome />
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1,backgroundColor: '#ffe6d0',}}>
         {/* Content goes here */}
       </div>
       <Footer />
