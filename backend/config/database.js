@@ -1,21 +1,19 @@
-const mongoose = require('mongoose')
-require('dotenv').config()
+const mongoose = require("mongoose");
 
-const uri = process.env.DB_URI
+const connectDatabase = () => {
+  mongoose
+    .connect(process.env.DB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then((data) => {
+      console.log(`Mongodb connected with server: ${data.connection.host}`);
+    })
+    .catch((err) => {
+      console.log(`Error: ${err.message}`);
+      console.log("Shutting down the server due to Unhandled Promise Rejection");
+      process.exit(1);
+    });
+};
 
-console.log(uri);
-
-const connectDB = async () => {
-    try {
-        await mongoose.connect(uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
-        console.log('MongoDB connected successfully')
-    } catch (error) {
-        console.error('MongoDB connection error:', error)
-        process.exit(1)
-    }
-}
-
-module.exports = connectDB
+module.exports = connectDatabase;
