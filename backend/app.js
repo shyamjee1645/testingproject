@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
+const testapiRouter = require('./routes/testApi');
 
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
@@ -19,5 +20,6 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   
 app.use('/', homeRouter);
 app.use('/api/people', peopleRouter);
+app.use('/testapi', testapiRouter);
 
 module.exports = app
