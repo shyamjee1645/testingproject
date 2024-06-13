@@ -21,7 +21,6 @@ const productRouter = require("./routes/productRouter.js");
 
 app.use("/api/v1",productRouter);
 app.use("/api/v1", userRouter);
-
 app.use(errorMiddleware);
 
 module.exports = app;

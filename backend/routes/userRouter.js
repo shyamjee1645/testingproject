@@ -21,10 +21,11 @@ router.route("/register").post(registerUser);
 
 router.route("/login").post(loginUser);
 
+//Not Working
 router.route("/password/forgot").post(forgotPassword);
 
 router.route("/password/reset/:token").put(resetPassword);
-
+//Till Here
 router.route("/logout").get(logout);
 
 router.route("/me").get(isAuthenticatedUser, getUserDetails);

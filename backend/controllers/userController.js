@@ -2,7 +2,7 @@ const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const User = require("../models/userModel");
 const sendToken = require("../utils/jwtToken");
-const sendEmail = require("../utils/sendEmail.js");
+const getEmailClient = require("../utils/sendEmail.js");
 const crypto = require("crypto");
 const cloudinary = require("cloudinary");
 
@@ -90,7 +90,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
   // Get ResetPassword Token
   const resetToken = user.getResetPasswordToken();
-
+  console.log(resetToken);
   await user.save({ validateBeforeSave: false });
 
   const resetPasswordUrl = `${req.protocol}://${req.get(
@@ -100,11 +100,18 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\nIf you have not requested this email then, please ignore it.`;
 
   try {
-    await sendEmail({
-      email: user.email,
-      subject: `Ecommerce Password Recovery`,
-      message,
-    });
+        const sendEmail = await getEmailClient();
+
+        const options = {
+            from: 'iminvincibleshyam1645@gmail.com',
+            to: 'jees8269@gmail.com',
+            cc: 'shyam.jee.mish@gmail.com',
+            subject: 'Reset Your Email',
+            message: {message}
+        };
+
+        await sendEmail(options);
+        console.log('Email sent successfully');
 
     res.status(200).json({
       success: true,
@@ -132,6 +139,7 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
     resetPasswordToken,
     resetPasswordExpire: { $gt: Date.now() },
   });
+  console.log(user);
 
   if (!user) {
     return next(
